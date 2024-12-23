@@ -1,0 +1,415 @@
+<!doctype html>
+<!-- 
+* Bootstrap Simple Admin Template
+* Version: 2.1
+* Author: Alexis Luna
+* Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Karyawan | PT SOUNDBEST</title>
+    <link rel="icon" href="assets/img/WhatsApp Image 2024-10-29 at 10.40.11_032fe7b2.jpg" type="image/png">
+    <link href="assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome/css/solid.min.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome/css/brands.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/master.css" rel="stylesheet">
+    <link href="assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header">
+                <img src="assets/img/WhatsApp Image 2024-10-29 at 10.40.11_032fe7b2.jpg" alt="bootraper logo" class="app-logo"style="width: 210px; height: 250px;">
+            </div>
+            <div class="sidebarr-header text-center">
+                <!-- Profile Picture -->
+                <img src="assets/img/WhatsApp Image 2024-11-02 at 12.59.40_f702dfd0.jpg" alt="Profile Picture" class="rounded-circle" style="width: 80px; height: 80px;">
+                <!-- Welcome Text -->
+                <h4 class="mt-3">Welcome, FITRI</h4>
+                <p class="text-secondary">Administrator</p>
+            </div>
+            <ul class="list-unstyled components text-secondary">
+                <li>
+                    <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <span class="submenu-pinggir">Menu Karyawan</span>
+                <li>
+                    <a href="karyawan.html"><i class="fas fa-users"></i>Karyawan</a>
+                </li>
+                <li>
+                    <a href="jabatan.html"><i class="fas fa-user-plus"></i> Jabatan</a>
+                </li>
+                <li>
+                    <a href="divisi.html"><i class="fas fa-user-plus"></i> Divisi</a>
+                </li>
+                <span class="submenu-pinggir">Menu Absensi</span>
+                <li>
+                    <a href="absensi.html"><i class="fas fa-calendar-alt"></i> Absensi</a>
+                </li>
+                <li>
+                    <a href="izin.html"><i class="fas fa-briefcase-medical"></i> Izin</a>
+                </li>
+                <li>
+                    <a href="lembur.html"><i class="fas fa-user-clock"></i> Lembur</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="body" class="active">
+            <!-- navbar navigation component -->
+            <nav class="navbar navbar-expand-lg navbar-white bg-white">
+                <button type="button" id="sidebarCollapse" class="btn btn-light">
+                    <i class="fas fa-bars"></i><span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <div class="nav-dropdown">
+                                <a href="#" id="nav2" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user"></i> <span>FITRI</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end nav-link-menu">
+                                    <ul class="nav-list">
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-address-card"></i> Profile</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-envelope"></i> Messages</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
+                                        <div class="dropdown-divider"></div>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end of navbar navigation -->
+            <div class="content">
+                <div class="container">
+                    <div class="page-title">
+                        <h3></h3>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="entries" class="form-label">Show Entries:</label>
+                            <select id="entries" class="form-select" aria-label="Show entries">
+                                <option value="5" selected>5</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="searchInput" class="form-label">Search:</label>
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search by any field">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="d-flex justify-content-between">
+                                        <h5>Daftar Jabatan</h5>
+                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJobModal">
+                                            <i class="fas fa-plus"></i> Tambah Karyawan
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" id="jobTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Kode</th>
+                                                    <th>Nama</th>
+                                                    <th>Email</th>
+                                                    <th>Alamat</th>
+                                                    <th>Jabatan</th>
+                                                    <th>Username</th>
+                                                    <th>Password</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                    <td>1</td>
+                                                    <td>KAR001</td>
+                                                    <td>DAI GAO ZHENG</td>
+                                                    <td>DAIDAI@SOUNDBEST.co.id</td>
+                                                    <td>KEMANG</td>
+                                                    <td>GENERAL MANAGER</td>
+                                                    <td>DAISOUNDBEST</td>
+                                                    <td>SOUNDBEST_1</td>
+                                                    <td>
+                                                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editJobModal" data-id="0">Edit</button>
+                                                        <button class="btn btn-danger btn-sm" onclick="deleteJob(0)">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Job Modal -->
+            <div class="modal fade" id="addJobModal" tabindex="-1" aria-labelledby="addJobModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addJobModalLabel">Penambahan Karyawan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="addJobForm">
+                                <div class="mb-3">
+                                    <label for="kodeJabatan" class="form-label">Kode</label>
+                                    <input type="text" class="form-control" id="kodeJabatan" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="namaJabatan" class="form-label">Nama</label>
+                                    <input type="text" class="form-control" id="namaJabatan" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="alamat" class="form-label">Alamat</label>
+                                    <input type="text" class="form-control" id="alamat" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="jabatan" class="form-label">Jabatan</label>
+                                    <input type="text" class="form-control" id="jabatan" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="username" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="saveJobBtn">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Job Modal -->
+            <div class="modal fade" id="editJobModal" tabindex="-1" aria-labelledby="editJobModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editJobModalLabel">Ubah Data karyawan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editJobForm">
+                                <input type="hidden" id="editJobId">
+                                <div class="mb-3">
+                                    <label for="editKodeJabatan" class="form-label">Kode</label>
+                                    <input type="text" class="form-control" id="editKodeJabatan" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editNamaJabatan" class="form-label">Nama</label>
+                                    <input type="text" class="form-control" id="editNamaJabatan" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="editEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editAlamat" class="form-label">Alamat</label>
+                                    <input type="text" class="form-control" id="editAlamat" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editJabatan" class="form-label">Jabatan</label>
+                                    <input type="text" class="form-control" id="editJabatan" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editUsername" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="editUsername" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="editPassword" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="updateJobBtn">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <footer class="footer text-center">
+        <p class="text-secondary">2024 © PT SOUNDBEST</p>
+    </footer>
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/datatables/datatables.min.js"></script>
+    <script src="assets/js/initiate-datatables.js"></script>
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Sample job data for testing
+    let jobData = [
+        {
+            kodeJabatan: 'KAR001',
+            namaJabatan: 'DAI GAO ZHENG',
+            email: 'DAIDAI@SOUNDBEST.co.id',
+            alamat: 'KEMANG',
+            jabatan: 'GENERAL MANAGER',
+            username: 'DAISOUNDBEST',
+            password: 'SOUNDBEST_1'
+        },
+        {
+            kodeJabatan: 'KAR002',
+            namaJabatan: 'FITRI BIDAYATUL',
+            email: 'FITRIB@SOUNDBEST.co.id',
+            alamat: 'CIRACAS',
+            jabatan: 'ADMINISTRASI',
+            username: 'FITRISOUNDBEST',
+            password: 'FITRI_DAI'
+        }
+    ];
+
+    const jobTableBody = document.querySelector('#jobTable tbody');
+    const entriesDropdown = document.getElementById('entries');
+    const searchInput = document.getElementById('searchInput');
+
+    // Render table with initial data
+    renderTable();
+
+    // Add Job
+    document.getElementById('saveJobBtn').addEventListener('click', function () {
+        const newJob = getFormData('addJobForm');
+        jobData.push(newJob);
+        renderTable();
+        resetForm('addJobForm');
+        bootstrap.Modal.getInstance(document.getElementById('addJobModal')).hide();
+    });
+
+    // Edit Job
+    document.getElementById('updateJobBtn').addEventListener('click', function () {
+        const jobId = document.getElementById('editJobId').value;
+        const updatedJob = getFormData('editJobForm');
+        jobData[jobId] = updatedJob;
+        renderTable();
+        bootstrap.Modal.getInstance(document.getElementById('editJobModal')).hide();
+    });
+
+    // Search and Filter
+    searchInput.addEventListener('input', renderTable);
+    entriesDropdown.addEventListener('change', renderTable);
+
+    // Function to render table
+    function renderTable() {
+        jobTableBody.innerHTML = '';
+        const searchQuery = searchInput.value.toLowerCase();
+        const entriesToShow = parseInt(entriesDropdown.value);
+
+        // Filter and display jobs based on search and entries selected
+        const filteredJobs = jobData.filter((job) => {
+            return Object.values(job).some(value => value.toLowerCase().includes(searchQuery));
+        }).slice(0, entriesToShow);
+
+        filteredJobs.forEach((job, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${job.kodeJabatan}</td>
+                <td>${job.namaJabatan}</td>
+                <td>${job.email}</td>
+                <td>${job.alamat}</td>
+                <td>${job.jabatan}</td>
+                <td>${job.username}</td>
+                <td>${job.password}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning editBtn" data-id="${index}">Edit</button>
+                    <button class="btn btn-sm btn-danger deleteBtn" data-id="${index}">Delete</button>
+                </td>
+            `;
+            jobTableBody.appendChild(row);
+        });
+
+        addTableEventListeners();
+    }
+
+    // Function to Get Form Data
+    function getFormData(formId) {
+        const formData = {};
+        const form = document.getElementById(formId);
+        Array.from(form.elements).forEach(element => {
+            if (element.id) formData[element.id] = element.value;
+        });
+        return formData;
+    }
+
+    // Reset Form
+    function resetForm(formId) {
+        const form = document.getElementById(formId);
+        form.reset();
+    }
+
+    // Add Table Event Listeners for Edit/Delete
+    function addTableEventListeners() {
+        document.querySelectorAll('.editBtn').forEach(button => {
+            button.addEventListener('click', function () {
+                const jobId = this.getAttribute('data-id');
+                const job = jobData[jobId];
+                populateEditModal(job, jobId);
+            });
+        });
+
+        document.querySelectorAll('.deleteBtn').forEach(button => {
+            button.addEventListener('click', function () {
+                const jobId = this.getAttribute('data-id');
+                if (confirm('apakah anda yakin, ingin menghapus data ini?')) {
+                    jobData.splice(jobId, 1);
+                    renderTable();
+                }
+            });
+        });
+    }
+
+    // Populate Edit Modal with Data
+    function populateEditModal(job, jobId) {
+        document.getElementById('editJobId').value = jobId;
+        document.getElementById('editKodeJabatan').value = job.kodeJabatan;
+        document.getElementById('editNamaJabatan').value = job.namaJabatan;
+        document.getElementById('editEmail').value = job.email;
+        document.getElementById('editAlamat').value = job.alamat;
+        document.getElementById('editJabatan').value = job.jabatan;
+        document.getElementById('editUsername').value = job.username;
+        document.getElementById('editPassword').value = job.password;
+        new bootstrap.Modal(document.getElementById('editJobModal')).show();
+    }
+});
+
+
+    
+    </script>
+    
+</body>
+
+</html>

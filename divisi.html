@@ -1,0 +1,296 @@
+<!doctype html>
+<!-- 
+* Bootstrap Simple Admin Template
+* Version: 2.1
+* Author: Alexis Luna
+* Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Divisi | PT Soundbest</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/png">
+    <link href="assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome/css/solid.min.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome/css/brands.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/master.css" rel="stylesheet">
+    <link href="assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header">
+                <img src="assets/img/WhatsApp Image 2024-10-29 at 10.40.11_032fe7b2.jpg" alt="bootraper logo" class="app-logo" style="width: 210px; height: 250px;">
+            </div>
+            <div class="sidebarr-header text-center">
+                <!-- Profile Picture -->
+                <img src="assets/img/WhatsApp Image 2024-11-02 at 12.59.40_f702dfd0.jpg" alt="Profile Picture" class="rounded-circle" style="width: 80px; height: 80px;">
+                <!-- Welcome Text -->
+                <h4 class="mt-3">Welcome, FITRI</h4>
+                <p class="text-secondary">Administrator</p>
+            </div>
+            <ul class="list-unstyled components text-secondary">
+                <li>
+                    <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <span class="submenu-pinggir">Menu Karyawan</span>
+                <li>
+                    <a href="karyawan.html"><i class="fas fa-users"></i>Karyawan</a>
+                </li>
+                <li>
+                    <a href="jabatan.html"><i class="fas fa-user-plus"></i> Jabatan</a>
+                </li>
+                <li>
+                    <a href="divisi.html"><i class="fas fa-user-plus"></i> Divisi</a>
+                </li>
+                <span class="submenu-pinggir">Menu Absensi</span>
+                <li>
+                    <a href="absensi.html"><i class="fas fa-calendar-alt"></i> Absensi</a>
+                </li>
+                <li>
+                    <a href="izin.html"><i class="fas fa-briefcase-medical"></i> Izin</a>
+                </li>
+                <li>
+                    <a href="lembur.html"><i class="fas fa-user-clock"></i> Lembur</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="body" class="active">
+            <!-- navbar navigation component -->
+            <nav class="navbar navbar-expand-lg navbar-white bg-white">
+                <button type="button" id="sidebarCollapse" class="btn btn-light">
+                    <i class="fas fa-bars"></i><span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <div class="nav-dropdown">
+                                <a href="#" id="nav2" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user"></i> <span>FITRI</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end nav-link-menu">
+                                    <ul class="nav-list">
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-address-card"></i> Profile</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-envelope"></i> Messages</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
+                                        <div class="dropdown-divider"></div>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end of navbar navigation -->
+            <div class="content">
+                <div class="container">
+                    <div class="page-title">
+                        <h3>Daftar Divisi</h3>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="entries" class="form-label">Show Entries:</label>
+                            <select id="entries" class="form-select" aria-label="Show entries">
+                                <option value="5" selected>5</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="searchInput" class="form-label">Search:</label>
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search by any field">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="d-flex justify-content-between">
+                                        <h5>Daftar Divisi</h5>
+                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDivisiModal">
+                                            <i class="fas fa-plus"></i> Tambah Divisi
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" id="divisiTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Kode Divisi</th>
+                                                    <th>Nama Divisi</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Data will be dynamically populated here -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Divisi Modal -->
+            <div class="modal fade" id="addDivisiModal" tabindex="-1" aria-labelledby="addDivisiModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addDivisiModalLabel">Tambah Divisi</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="addDivisiForm">
+                                <div class="mb-3">
+                                    <label for="kodeDivisi" class="form-label">Kode Divisi</label>
+                                    <input type="text" class="form-control" id="kodeDivisi" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="namaDivisi" class="form-label">Nama Divisi</label>
+                                    <input type="text" class="form-control" id="namaDivisi" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="saveDivisiBtn">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Divisi Modal -->
+            <div class="modal fade" id="editDivisiModal" tabindex="-1" aria-labelledby="editDivisiModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editDivisiModalLabel">Ubah Divisi</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editDivisiForm">
+                                <input type="hidden" id="editDivisiId">
+                                <div class="mb-3">
+                                    <label for="editKodeDivisi" class="form-label">Kode Divisi</label>
+                                    <input type="text" class="form-control" id="editKodeDivisi" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editNamaDivisi" class="form-label">Nama Divisi</label>
+                                    <input type="text" class="form-control" id="editNamaDivisi" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="updateDivisiBtn">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="footer text-center">
+        <p class="text-secondary">2024 © PT SOUNDBEST</p>
+    </footer>       
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/datatables/datatables.min.js"></script>
+    <script src="assets/js/initiate-datatables.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // JavaScript for handling modal actions and table data
+        $(document).ready(function () {
+            // Sample data for demonstration
+            const divisiData = [
+                { id: 1, kode: "DIV001", nama: "Divisi Penjualan" },
+                { id: 2, kode: "DIV002", nama: "Divisi Pemasaran" },
+                // More divisi can be added here
+            ];
+
+            // Function to render table data
+            function renderTable() {
+                const tbody = $('#divisiTable tbody');
+                tbody.empty();
+                divisiData.forEach((divisi, index) => {
+                    tbody.append(`
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${divisi.kode}</td>
+                            <td>${divisi.nama}</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm editDivisi" data-id="${divisi.id}">Edit</button>
+                                <button class="btn btn-danger btn-sm deleteDivisi" data-id="${divisi.id}">Delete</button>
+                            </td>
+                        </tr>
+                    `);
+                });
+            }
+
+            // Initial render of the table
+            renderTable();
+
+            // Handle adding a divisi
+            $('#saveDivisiBtn').on('click', function () {
+                const kodeDivisi = $('#kodeDivisi').val();
+                const namaDivisi = $('#namaDivisi').val();
+                const newDivisi = {
+                    id: divisiData.length + 1,
+                    kode: kodeDivisi,
+                    nama: namaDivisi,
+                };
+                divisiData.push(newDivisi);
+                renderTable();
+                $('#addDivisiModal').modal('hide');
+                $('#addDivisiForm')[0].reset();
+            });
+
+            // Handle editing a divisi
+            $(document).on('click', '.editDivisi', function () {
+                const id = $(this).data('id');
+                const divisi = divisiData.find(d => d.id === id);
+                $('#editDivisiId').val(divisi.id);
+                $('#editKodeDivisi').val(divisi.kode);
+                $('#editNamaDivisi').val(divisi.nama);
+                $('#editDivisiModal').modal('show');
+            });
+
+            // Handle updating a divisi
+            $('#updateDivisiBtn').on('click', function () {
+                const id = $('#editDivisiId').val();
+                const kode = $('#editKodeDivisi').val();
+                const nama = $('#editNamaDivisi').val();
+                const divisi = divisiData.find(d => d.id === Number(id));
+                divisi.kode = kode;
+                divisi.nama = nama;
+                renderTable();
+                $('#editDivisiModal').modal('hide');
+            });
+
+            // Handle deleting a divisi
+            $(document).on('click', '.deleteDivisi', function () {
+                const id = $(this).data('id');
+                const index = divisiData.findIndex(d => d.id === id);
+                if (index > -1) {
+                    divisiData.splice(index, 1);
+                    renderTable();
+                }
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

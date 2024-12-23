@@ -1,0 +1,340 @@
+<!doctype html>
+<!-- 
+* Bootstrap Simple Admin Template
+* Version: 2.1
+* Author: Alexis Luna
+* Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Absensi | PT Soundbest</title>
+    <link rel="icon" href="assets/img/WhatsApp Image 2024-10-29 at 10.40.11_032fe7b2.jpg" type="image/png">
+    <link href="assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome/css/solid.min.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome/css/brands.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/master.css" rel="stylesheet">
+    <link href="assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header">
+                <img src="assets/img/WhatsApp Image 2024-10-29 at 10.40.11_032fe7b2.jpg" alt="bootraper logo" class="app-logo" style="width: 210px; height: 250px;">
+            </div>
+            <div class="sidebarr-header text-center">
+                <!-- Profile Picture -->
+                <img src="assets/img/WhatsApp Image 2024-11-02 at 12.59.40_f702dfd0.jpg" alt="Profile Picture" class="rounded-circle" style="width: 90px; height: 90px;">
+                <!-- Welcome Text -->
+                <h4 class="mt-3">Welcome, FITRI</h4>
+                <p class="text-secondary">Administrator</p>
+            </div>
+            <ul class="list-unstyled components text-secondary">
+                <li>
+                    <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <span class="submenu-pinggir">Menu Karyawan</span>
+                <li>
+                    <a href="karyawan.html"><i class="fas fa-users"></i>Karyawan</a>
+                </li>
+                <li>
+                    <a href="jabatan.html"><i class="fas fa-user-plus"></i> Jabatan</a>
+                </li>
+                <li>
+                    <a href="divisi.html"><i class="fas fa-user-plus"></i> Divisi</a>
+                </li>
+                <span class="submenu-pinggir">Menu Absensi</span>
+                <li>
+                    <a href="absensi.html"><i class="fas fa-calendar-alt"></i> Absensi</a>
+                </li>
+                <li>
+                    <a href="izin.html"><i class="fas fa-briefcase-medical"></i> Izin</a>
+                </li>
+                <li>
+                    <a href="lembur.html"><i class="fas fa-user-clock"></i> Lembur</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="body" class="active">
+            <!-- navbar navigation component -->
+            <nav class="navbar navbar-expand-lg navbar-white bg-white">
+                <button type="button" id="sidebarCollapse" class="btn btn-light">
+                    <i class="fas fa-bars"></i><span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <div class="nav-dropdown">
+                                <a href="#" id="nav2" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user"></i> <span>FITRI <i style="font-size: .8em;" class="fas fa-caret-down"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end nav-link-menu">
+                                    <ul class="nav-list">
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-address-card"></i> Profile</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-envelope"></i> Messages</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
+                                        <div class="dropdown-divider"></div>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end of navbar navigation -->
+            <div class="content">
+                <div class="container">
+                    <div class="page-title">
+                        <h3></h3>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="entries" class="form-label">Show Entries:</label>
+                            <select id="entries" class="form-select">
+                                <option value="5" selected>5</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="searchInput" class="form-label">Search:</label>
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search by any field">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="d-flex justify-content-between">
+                                        <h5>Daftar Absensi</h5>
+                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAttendanceModal">
+                                            <i class="fas fa-plus"></i> Tambah Absensi
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" id="attendanceTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Nama Karyawan</th>
+                                                    <th>Tanggal</th>
+                                                    <th>Lokasi Absen</th>
+                                                    <th>Jam Masuk</th>
+                                                    <th>Jam Keluar</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Dai Gao Zheng</td>
+                                                    <td>02/11/2024</td>
+                                                    <td>Kantor Pusat</td>
+                                                    <td>09:00</td>
+                                                    <td>17:30</td>
+                                                    <td>
+                                                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editAttendanceModal" data-id="0">Edit</button>
+                                                        <button class="btn btn-danger btn-sm" onclick="deleteAttendance(0)">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Attendance Modal -->
+            <div class="modal fade" id="addAttendanceModal" tabindex="-1" aria-labelledby="addAttendanceModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addAttendanceModalLabel">Tambah Absensi</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="addAttendanceForm">
+                                <div class="mb-3">
+                                    <label for="namaKaryawan" class="form-label">Nama Karyawan</label>
+                                    <input type="text" class="form-control" id="namaKaryawan" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tanggal" class="form-label">Tanggal</label>
+                                    <input type="date" class="form-control" id="tanggal" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="lokasiAbsen" class="form-label">Lokasi Absen</label>
+                                    <input type="text" class="form-control" id="lokasiAbsen" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="jamMasuk" class="form-label">Jam Masuk</label>
+                                    <input type="time" class="form-control" id="jamMasuk" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="jamKeluar" class="form-label">Jam Keluar</label>
+                                    <input type="time" class="form-control" id="jamKeluar" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="saveAttendanceBtn">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Attendance Modal -->
+            <div class="modal fade" id="editAttendanceModal" tabindex="-1" aria-labelledby="editAttendanceModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editAttendanceModalLabel">Edit Absensi</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editAttendanceForm">
+                                <input type="hidden" id="editAttendanceId">
+                                <div class="mb-3">
+                                    <label for="editNamaKaryawan" class="form-label">Nama Karyawan</label>
+                                    <input type="text" class="form-control" id="editNamaKaryawan" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editTanggal" class="form-label">Tanggal</label>
+                                    <input type="date" class="form-control" id="editTanggal" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editLokasiAbsen" class="form-label">Lokasi Absen</label>
+                                    <input type="text" class="form-control" id="editLokasiAbsen" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editJamMasuk" class="form-label">Jam Masuk</label>
+                                    <input type="time" class="form-control" id="editJamMasuk" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editJamKeluar" class="form-label">Jam Keluar</label>
+                                    <input type="time" class="form-control" id="editJamKeluar" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="updateAttendanceBtn">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><footer class="footer text-center">
+        <p class="text-secondary">2024 © PT SOUNDBEST</p>
+    </footer>
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/datatables/datatables.min.js"></script>
+    <script src="assets/js/initiate-datatables.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const attendanceTable = document.getElementById("attendanceTable").getElementsByTagName("tbody")[0];
+    let attendanceData = [];
+    let editIndex = -1;
+
+    function renderTable() {
+        attendanceTable.innerHTML = '';
+        attendanceData.forEach((attendance, index) => {
+            const row = attendanceTable.insertRow();
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${attendance.namaKaryawan}</td>
+                <td>${attendance.tanggal}</td>
+                <td>${attendance.lokasiAbsen}</td>
+                <td>${attendance.jamMasuk}</td>
+                <td>${attendance.jamKeluar}</td>
+                <td>
+                    <button class="btn btn-warning btn-sm" onclick="editAttendance(${index})">Edit</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteAttendance(${index})">Delete</button>
+                </td>
+            `;
+        });
+    }
+
+    function resetForm() {
+        document.getElementById("addAttendanceForm").reset();
+        document.getElementById("editAttendanceForm").reset();
+        editIndex = -1;
+    }
+
+    // Add Attendance
+    document.getElementById("saveAttendanceBtn").addEventListener("click", function () {
+        const namaKaryawan = document.getElementById("namaKaryawan").value;
+        const tanggal = document.getElementById("tanggal").value;
+        const lokasiAbsen = document.getElementById("lokasiAbsen").value;
+        const jamMasuk = document.getElementById("jamMasuk").value;
+        const jamKeluar = document.getElementById("jamKeluar").value;
+
+        if (namaKaryawan && tanggal && lokasiAbsen && jamMasuk && jamKeluar) {
+            attendanceData.push({ namaKaryawan, tanggal, lokasiAbsen, jamMasuk, jamKeluar });
+            renderTable();
+            resetForm();
+            new bootstrap.Modal(document.getElementById("addAttendanceModal")).hide();
+        } else {
+            alert("Mohon lengkapi semua kolom.");
+        }
+    });
+
+    // Edit Attendance
+    window.editAttendance = function (index) {
+        const attendance = attendanceData[index];
+        editIndex = index;
+
+        document.getElementById("editNamaKaryawan").value = attendance.namaKaryawan;
+        document.getElementById("editTanggal").value = attendance.tanggal;
+        document.getElementById("editLokasiAbsen").value = attendance.lokasiAbsen;
+        document.getElementById("editJamMasuk").value = attendance.jamMasuk;
+        document.getElementById("editJamKeluar").value = attendance.jamKeluar;
+
+        new bootstrap.Modal(document.getElementById("editAttendanceModal")).show();
+    };
+
+    document.getElementById("updateAttendanceBtn").addEventListener("click", function () {
+        const namaKaryawan = document.getElementById("editNamaKaryawan").value;
+        const tanggal = document.getElementById("editTanggal").value;
+        const lokasiAbsen = document.getElementById("editLokasiAbsen").value;
+        const jamMasuk = document.getElementById("editJamMasuk").value;
+        const jamKeluar = document.getElementById("editJamKeluar").value;
+
+        if (namaKaryawan && tanggal && lokasiAbsen && jamMasuk && jamKeluar) {
+            attendanceData[editIndex] = { namaKaryawan, tanggal, lokasiAbsen, jamMasuk, jamKeluar };
+            renderTable();
+            resetForm();
+            new bootstrap.Modal(document.getElementById("editAttendanceModal")).hide();
+        } else {
+            alert("Mohon lengkapi semua kolom.");
+        }
+    });
+
+    // Delete Attendance
+    window.deleteAttendance = function (index) {
+        if (confirm("Anda yakin ingin menghapus absensi ini?")) {
+            attendanceData.splice(index, 1);
+            renderTable();
+        }
+    };
+});
+
+    </script>
+</body>
+
+</html>

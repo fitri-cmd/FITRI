@@ -1,0 +1,316 @@
+<!doctype html>
+<!-- 
+* Bootstrap Simple Admin Template
+* Version: 2.1
+* Author: Alexis Luna
+* Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jabatan | PT SOUNDBEST</title>
+    <link rel="icon" href="assets/img/WhatsApp Image 2024-10-29 at 10.40.11_032fe7b2.jpg" type="image/png">
+    <link href="assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome/css/solid.min.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome/css/brands.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/master.css" rel="stylesheet">
+    <link href="assets/vendor/flagiconcss/css/flag-icon.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header">
+                <img src="assets/img/WhatsApp Image 2024-10-29 at 10.40.11_032fe7b2.jpg" alt="bootraper logo" class="app-logo" style="width: 210px; height: 250px;">
+            </div>
+            <div class="sidebarr-header text-center">
+                
+                <img src="assets/img/WhatsApp Image 2024-11-02 at 12.59.40_f702dfd0.jpg" alt="Profile Picture" class="rounded-circle" style="width: 80px; height: 80px;">
+                
+                <h4 class="mt-3">Welcome, FITRI</h4>
+                <p class="text-secondary">Administrator</p>
+            </div>
+            <ul class="list-unstyled components text-secondary">
+                <li>
+                    <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <span class="submenu-pinggir">Menu Karyawan</span>
+                <li>
+                    <a href="karyawan.html"><i class="fas fa-users"></i>Karyawan</a>
+                </li>
+                <li>
+                    <a href="jabatan.html"><i class="fas fa-user-plus"></i> Jabatan</a>
+                </li>
+                <li>
+                    <a href="divisi.html"><i class="fas fa-user-plus"></i> Divisi</a>
+                </li>
+                <span class="submenu-pinggir">Menu Absensi</span>
+                <li>
+                    <a href="absensi.html"><i class="fas fa-calendar-alt"></i> Absensi</a>
+                </li>
+                <li>
+                    <a href="izin.html"><i class="fas fa-briefcase-medical"></i> Izin</a>
+                </li>
+                <li>
+                    <a href="lembur.html"><i class="fas fa-user-clock"></i> Lembur</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="body" class="active">
+            <!-- navbar navigation component -->
+            <nav class="navbar navbar-expand-lg navbar-white bg-white">
+                <button type="button" id="sidebarCollapse" class="btn btn-light">
+                    <i class="fas fa-bars"></i><span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <div class="nav-dropdown">
+                                <a href="#" id="nav2" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user"></i> <span>FITRI</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end nav-link-menu">
+                                    <ul class="nav-list">
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-address-card"></i> Profile</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-envelope"></i> Messages</a></li>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
+                                        <div class="dropdown-divider"></div>
+                                        <li><a href="" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end of navbar navigation -->
+            <div class="content">
+                <div class="container">
+                    <div class="page-title">
+                        <h3>Daftar Jabatan</h3>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="entries" class="form-label">Show Entries:</label>
+                            <select id="entries" class="form-select" aria-label="Show entries">
+                                <option value="5" selected>5</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="searchInput" class="form-label">Search:</label>
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search by any field">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="d-flex justify-content-between">
+                                        <h5>Daftar Jabatan</h5>
+                                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addJobModal">
+                                            <i class="fas fa-plus"></i> Tambah Jabatan
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover" id="jobTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Kode Jabatan</th>
+                                                    <th>Nama Jabatan</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Data will be dynamically populated here -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Job Modal -->
+            <div class="modal fade" id="addJobModal" tabindex="-1" aria-labelledby="addJobModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addJobModalLabel">Tambah Jabatan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="addJobForm">
+                                <div class="mb-3">
+                                    <label for="kodeJabatan" class="form-label">Kode Jabatan</label>
+                                    <input type="text" class="form-control" id="kodeJabatan" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="namaJabatan" class="form-label">Nama Jabatan</label>
+                                    <input type="text" class="form-control" id="namaJabatan" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="saveJobBtn">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Job Modal -->
+            <div class="modal fade" id="editJobModal" tabindex="-1" aria-labelledby="editJobModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editJobModalLabel">Ubah Jabatan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editJobForm">
+                                <input type="hidden" id="editJobId">
+                                <div class="mb-3">
+                                    <label for="editKodeJabatan" class="form-label">Kode Jabatan</label>
+                                    <input type="text" class="form-control" id="editKodeJabatan" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editNamaJabatan" class="form-label">Nama Jabatan</label>
+                                    <input type="text" class="form-control" id="editNamaJabatan" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="updateJobBtn">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="footer text-center">
+        <p class="text-secondary">2024 © Boba Tea Management</p>
+    </footer>
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/master.js"></script>
+    <script src="assets/vendor/datatables/datatables.min.js"></script>
+    <script src="assets/js/initiate-datatables.js"></script>
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            let jobs = [];
+            let jobId = 1;
+
+            // Function to render job titles to the table
+            function renderJobs() {
+                const jobTableBody = $('#jobTable tbody');
+                jobTableBody.empty();
+                jobs.forEach((job, index) => {
+                    jobTableBody.append(`
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${job.kode}</td>
+                            <td>${job.nama}</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm editJobBtn" data-id="${job.id}">Edit</button>
+                                <button class="btn btn-danger btn-sm deleteJobBtn" data-id="${job.id}">Delete</button>
+                            </td>
+                        </tr>
+                    `);
+                });
+            }
+
+            // Add job
+            $('#saveJobBtn').on('click', function() {
+                const kodeJabatan = $('#kodeJabatan').val();
+                const namaJabatan = $('#namaJabatan').val();
+
+                const newJob = {
+                    id: jobId++,
+                    kode: kodeJabatan,
+                    nama: namaJabatan,
+                };
+
+                jobs.push(newJob);
+                $('#addJobModal').modal('hide');
+                $('#addJobForm')[0].reset();
+                renderJobs();
+            });
+
+            // Edit job
+            $(document).on('click', '.editJobBtn', function() {
+                const jobIdToEdit = $(this).data('id');
+                const jobToEdit = jobs.find(job => job.id === jobIdToEdit);
+
+                $('#editJobId').val(jobToEdit.id);
+                $('#editKodeJabatan').val(jobToEdit.kode);
+                $('#editNamaJabatan').val(jobToEdit.nama);
+                $('#editJobModal').modal('show');
+            });
+
+            $('#updateJobBtn').on('click', function() {
+                const jobIdToUpdate = $('#editJobId').val();
+                const kodeJabatan = $('#editKodeJabatan').val();
+                const namaJabatan = $('#editNamaJabatan').val();
+
+                const jobIndex = jobs.findIndex(job => job.id == jobIdToUpdate);
+                if (jobIndex > -1) {
+                    jobs[jobIndex].kode = kodeJabatan;
+                    jobs[jobIndex].nama = namaJabatan;
+                    $('#editJobModal').modal('hide');
+                    renderJobs();
+                }
+            });
+
+            // Delete job
+            $(document).on('click', '.deleteJobBtn', function() {
+                const jobIdToDelete = $(this).data('id');
+                jobs = jobs.filter(job => job.id !== jobIdToDelete);
+                renderJobs();
+            });
+
+            // Search function
+            $('#searchInput').on('keyup', function() {
+                const searchTerm = $(this).val().toLowerCase();
+                const filteredJobs = jobs.filter(job => 
+                    job.kode.toLowerCase().includes(searchTerm) ||
+                    job.nama.toLowerCase().includes(searchTerm)
+                );
+                const jobTableBody = $('#jobTable tbody');
+                jobTableBody.empty();
+                filteredJobs.forEach((job, index) => {
+                    jobTableBody.append(`
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${job.kode}</td>
+                            <td>${job.nama}</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm editJobBtn" data-id="${job.id}">Edit</button>
+                                <button class="btn btn-danger btn-sm deleteJobBtn" data-id="${job.id}">Delete</button>
+                            </td>
+                        </tr>
+                    `);
+                });
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
